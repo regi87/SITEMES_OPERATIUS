@@ -64,8 +64,29 @@ sudo adduser Sergio proyecto
 
 sudo chmod 070 /home/proyecto
 
+7-
+sudo mkdir /home/reuniones
+sudo addgroup reuniones
+sudo chgrp reuniones /home/reuniones
+sudo adduser Ana reuniones
+sudo adduser Andrea reuniones
+sudo adduser Jordi reuniones
+sudo adduser Julia reuniones
+sudo adduser Manolo reuniones
+sudo adduser Rana reuniones
+sudo adduser Sergio reuniones
 
+sudo chmod 070 /home/reuniones
 
+8-
+sudo chmod 750 /home/reuniones
+
+9-
+A Manolo solo lo pondremos poner en un grupo ya sea /home/interfaz o /home/bbdd ya que un usuario solo puede pertenecer a un grupo, o modificar los grupos para otros y así podría acceder, pero con el todos los otros usuarios también.
+
+-Para acceder a los directorios personales tendría que tener permisos de adminstrador y aśi si que podría acceder a los directorios personales.
+
+10-
 
 060
 
