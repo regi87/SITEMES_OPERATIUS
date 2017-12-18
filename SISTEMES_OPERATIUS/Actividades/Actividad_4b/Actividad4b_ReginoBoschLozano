@@ -1,0 +1,71 @@
+-Actividad 4b Regino Bosch Lozano-
+
+1-
+sudo useradd Manolo -d /home/manolo -m
+sudo passwd Manolo
+
+chmod 700 /home/manolo
+
+Ej:
+drwx------  2 Manolo Manolo   4096 dic 15 18:46 manolo
+
+2-
+sudo mkdir /home/interfaz
+sudo addgroup desarrolladores
+sudo chgrp desarrolladores /home/interfaz
+sudo adduser Ana desarrolladores
+sudo adduser Julia desarrolladores
+sudo chmod 065  /home/interfaz
+
+-No podemos darle permisos a Sergio y Andrea, porque no se encuentran en el grupo de desarrolladores, entonces solo lo podremos poner como otros para leer, pero así todos podrán leer el contenido de interfaz.
+ Le daremos opción para abrir y ejecutar para los otros usuarios por si hace falta.
+
+3-
+sudo mkdir /home/bbdd
+sudo addgroup programadores
+sudo chgrp programadores /home/bbdd
+sudo adduser Sergio bbdd
+sudo adduser Andrea bbdd
+sudo chmod 065 /home/bbdd
+
+-No podemos darle permisos a Ana y Julia, porque no se encuentrar en el grupo de bbdd, solo podriamos darle permisos en otros como a todos los usuarios que pertenecen a este. Le daremos opción para abrir y ejecutar para los otros usuarios por si hace falta.
+
+4-
+sudo mkdir /home/marketing
+sudo addgroup comerciales
+sudo chgrp comerciales /home/marketing
+sudo adduser Jordi marketing
+sudo adduser Rana marketing
+sudo chmod 060 /home/marketing
+
+-Pondremos a otros sin permisos ya que no hay especificación.
+
+5-
+sudo mkdir /home/organizacion
+sudo addgroup responsables
+sudo chgrp responasables /home/organizacion
+sudo adduser Ana responsables
+sudo adduser Sergio responsables
+sudo chmod 060 /home/marketing
+
+-No podemos darle permisoo a Julia ni a Andrea, porque se especifica que ningún usuario del resto deba tener acceso.
+
+6-
+sudo mkdir /home/proyecto
+sudo addgroup proyecto
+sudo chgrp proyecto /home/proyecto
+sudo adduser Ana proyecto
+sudo adduser Andrea proyecto
+sudo adduser Jordi proyecto
+sudo adduser Julia proyecto
+sudo adduser Manolo proyecto
+sudo adduser Rana proyecto
+sudo adduser Sergio proyecto
+
+sudo chmod 070 /home/proyecto
+
+
+
+
+060
+

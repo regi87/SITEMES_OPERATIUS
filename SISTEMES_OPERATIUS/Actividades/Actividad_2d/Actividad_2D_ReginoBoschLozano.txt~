@@ -1,0 +1,148 @@
+﻿Actividad 2d:
+
+Ejercicio: 1
+
+ echo "ESTA LÍNEA ES LOA PRIMERA EN MAYÚSCULAS EN ESTE FICHERO" > demo.txt 
+
+ echo "esta línea es la primera en minúsculas en este fichero" >> demo.txt 
+
+echo "Esta Línea Tiene Todas Las Primeras Letras De Cada Palabra En Mayúsculas" >> demo.txt 
+
+echo " " >>demo.txt 
+
+echo "La línea encima de esta está en blanco" >> demo.txt
+
+echo "Esta es la última línea" >> demo.txt 
+
+
+
+Ejercicio: 2
+
+grep "esta" demo.txt 
+
+
+
+
+Ejercicio: 3
+
+grep -i "línea" demo.txt 
+
+
+
+
+Ejercicio: 4
+
+mkdir prueba
+
+cp demo.txt prueba/
+cp demo.txt demo2.txt
+grep -r "línea" Actividad_2d/ 
+
+
+Ejercicio: 5
+
+grep -r "línea" Actividad_2d/ | grep -r "blanco" Actividad_2d/
+grep  'línea.*blanco' Actividad_2d/
+
+
+
+Ejercicio: 6
+
+grep -r -v "Línea" Actividad_2d/ | grep -r -v "Todas" Actividad_2d/
+grep -v 'Línea.*Todas' Actividad_2d/demo.txt
+
+
+Ejercicio: 7
+
+grep -r "línea" Actividad_2d/ | wc -l
+
+
+Ejercicio: 8
+
+grep -n "línea" Actividad_2d/demo.txt
+
+
+
+Ejercicio: 9
+
+grep -r "línea" Actividad_2d/
+
+
+Ejercicio: 10
+
+ ls -lhgo * | awk '{print $7,":",$3}'
+
+
+Ejercicio: 11
+
+ls -lhgo * | awk '{print $7,":",$3}' | grep ".txt"
+
+
+Ejercicio: 12
+
+12.1:
+
+grep "Match Odds" partido.csv | cat
+
+
+12.2:
+
+Empate:
+cat partido.csv | grep "Match Odds" | grep "The Draw" > empate.txt
+
+Local:
+cat partido.csv | grep "Match Odds" | grep ",Aston Villa," > local.txt
+
+Visitante:
+cat partido.csv | grep "Match Odds" | grep ",Tottenham" > visitante.txt
+
+12.3:
+
+sed -i "s/ //g"  empate.txt 
+sed -i "s/,/ /g"  empate.txt
+awk '{print $10}' empate.txt
+
+awk '{print $10}' empate.txt | sort -g | cat > columna_empates.txt
+
+
+12.4:
+
+sed -i "s/ //g"  local.txt 
+sed -i "s/,/ /g"  local.txt
+awk '{print $16}' local.txt
+
+awk '{print $16}' empate.txt | sort  | cat > columna_local.txt
+
+
+12.5:
+
+sed -i "s/ //g"  visitante.txt 
+sed -i "s/,/ /g"  visitante.txt
+awk '{print $12}' visitante.txt
+
+awk '{print $12}' visitante.txt | sort -g | cat > columna_visitante.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

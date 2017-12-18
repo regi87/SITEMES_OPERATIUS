@@ -1,0 +1,127 @@
+Actividad 4a --USUARIOS Y PERMISOS
+
+1-
+sudo groupadd oficina1
+sudo groupadd oficina2
+
+alumno@pc-alumno:~$ sudo cat /etc/group | grep oficina
+oficina1:x:1001:
+oficina2:x:1002:
+
+2-
+alumno@pc-alumno:~$ sudo adduser pedro --ingroup oficina1
+alumno@pc-alumno:~$ sudo adduser pablo --ingroup oficina1
+
+alumno@pc-alumno:/home$ groups pedro
+pedro : oficina1
+alumno@pc-alumno:/home$ groups pablo
+pablo : oficina1
+
+
+3-
+alumno@pc-alumno:/home$ sudo adduser alba --ingroup oficina2
+alumno@pc-alumno:/home$ sudo adduser nerea --ingroup oficina2
+
+alumno@pc-alumno:/home$ groups nerea
+alumno@pc-alumno:/home$ groups alba
+alba : oficina2
+
+4-
+alumno@pc-alumno:~$ su - pedro
+pedro@pc-alumno:~$ touch topsecret.txt
+chmod 600 topsecret.txt
+
+ls -l topsecret.txt 
+-rw------- 1 pedro oficina1 0 dic 11 11:23 topsecret.txt
+
+5-
+touch ventas_trimestre.txt
+chmod 660 ventas_trimestre.txt 
+
+6-
+su - alba
+touch empleados.txt
+chmod 460 empleados.txt 
+alba@pc-alumno:~$ ls -l empleados.txt 
+-r--rw---- 1 alba oficina2 0 dic 11 11:52 empleados.txt
+
+
+7-
+alba@pc-alumno:~$ exit
+logout
+sudo cp /home/alba/empleados.txt /home/regino/
+
+8-
+
+sudo /usr/sbin/visudo
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+pablo   ALL=(ALL:ALL) ALL
+nerea   ALL=(ALL:ALL) ALL
+alba   ALL=(ALL:ALL) ALL
+
+su - pablo
+
+sudo /usr/sbin/visudo
+cp ncal pabloncal
+ ./pabloncal
+
+9-
+sudo chown pablo pabloncal 
+sudo chmod 700 pabloncal 
+
+10-
+su - nerea
+mkdir compartido
+
+11-
+touch telefonos.txt gastos.txt sueldos.txt
+
+12-
+sudo chmod 760 telefonos.txt
+
+13-
+sudo chmod 740 gastos.txt 
+
+14-
+ chmod 600 sueldos.txt 
+
+15-
+ sudo chmod 500 compartido/* 
+
+16-
+sudo chmod 540 compartido/*
+
+17-
+sudo chmod 550 compartido/*
+
+18-
+ sudo chmod 510 compartido/*
+
+19-
+sudo usermod -a -G oficina1 regino
+
+20-
+groupdel: no se pudo eliminar el grupo primario del usuario «alba»
+
+"HAY QUE ELIMINAR PRIMERO EL USUARIO ASOCIADO AL GRUPO Y DESPUÉS EL GRUPO"
+
+21-
+sudo chgrp oficina2 empleados.txt 
+
+22-
+sudo deluser alba
+ls -la /home/alba
+-rw-r--r-- 1 1003 oficina2  655 dic 15 13:41 .profile
+
+
+
+
+
+
+	r	w	x
+	7	6	0
+
+	101
+
+
