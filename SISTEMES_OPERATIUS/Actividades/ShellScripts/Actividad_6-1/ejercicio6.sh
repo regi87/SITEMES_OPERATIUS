@@ -8,6 +8,7 @@ litros=-1
 total_litros=0
 total=0
 precio2=0.20
+precio3=0.10
 
 
 
@@ -16,20 +17,26 @@ while [ $litros -le 0 ];do
     read -p "Cantidad litros de agua consumidos: " litros
 done
 
-if [ $litros -lt 51 ]; then
     total=20
-    echo "Precio total 20€"
+    total_litros=$((litros-50))
 
-else if [ $litros -gt 50  ]; then
-	 total_litros=$litros-50
-	 total=  $((total_litros \* precio2 | bc -l))
-      
-    
-     fi
-fi
+ if [ $total_litros -gt 0 ]; then
 
+    # echo $total_litros "--" $precio2 "--" $total
+     total=`echo "scale=2; ($total_litros*$precio2)"+$total | bc`
 
-echo "Cantidad a pagar :" $total 
+     
+	 total_litros=$((total_litros-200))
+
+	 if [ $total_litros -gt 0 ]; then
+	     #  echo $total_litros "--" $precio3 "--" $total
+	     total=`echo "scale=2; ($total_litros*$precio3)+$total" | bc`
+	 fi
+ fi
+ 
+ 
+
+	      echo "Cantidad a pagar :" $total 
 		     		     
 		      
 		     
