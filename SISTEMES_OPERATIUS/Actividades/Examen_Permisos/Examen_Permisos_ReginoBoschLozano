@@ -1,0 +1,36 @@
+Examen Permisos Regino Bosch Lozano
+
+Ejercicio 1:
+sudo addgroup cuartos
+
+sudo adduser cristiano  --ingroup cuartos
+sudo adduser karim  --ingroup cuartos
+
+sudo adduser zizou
+sudo adduser zizou cuartos
+
+sudo adduser morata
+sudo adduser james
+
+Ejercicio 2:
+
+su - cristiano
+mkdir llorones
+
+sudo chmod g+rwx llorones
+sudo chmod o-rwx llorones
+
+-No se puede hacer todo lo que pide, porque al crear desde el usuario Cristiano el directorio llorones, este directorio tendrá como grupo principal el del usuario propietario el cual es cuartos, y en este grupo estarán Cristiano, Karim y Zizou entonces para todos los del grupo cuartos compartirán permisos, por esos o ponemos permiso de solo lectura y ejecución, o ponemos permisos de lectura, escritura y ejecución. Los otros podremos poner que no tengan permisos pero todos los del grupo tendrán el mismo permiso, menos el usuario propietario del directorio que tendrá todos los permisos.
+
+
+Ejercicio 3
+
+-No podrá crear un fichero ni ver su contenido ya que este directorio no tiene permisos de ejecución, para los grupos, solo el usuario propietario los tiene.
+
+Ejercicio 4
+
+Sí que podriamos modificarlo porque el grupo propietario del directorio el cual se encuentra este archivo tienen todos los permisos, por eso al tener el directorio de arriba los permisos si que podríamos modificar.
+
+Ejercicio 5
+
+Al pertenecer este archivo al usuario solo tenemos que darle permisos con chmod u+w para que pueda borrarlo, no tendremos que ponerle más al ser el propietario del archivo.

@@ -15,7 +15,7 @@ sudo addgroup desarrolladores
 sudo chgrp desarrolladores /home/interfaz
 sudo adduser Ana desarrolladores
 sudo adduser Julia desarrolladores
-sudo chmod 065  /home/interfaz
+sudo chmod 775  /home/interfaz
 
 -No podemos darle permisos a Sergio y Andrea, porque no se encuentran en el grupo de desarrolladores, entonces solo lo podremos poner como otros para leer, pero así todos podrán leer el contenido de interfaz.
  Le daremos opción para abrir y ejecutar para los otros usuarios por si hace falta.
@@ -79,14 +79,17 @@ sudo adduser Sergio reuniones
 sudo chmod 070 /home/reuniones
 
 8-
-sudo chmod 750 /home/reuniones
+No se puede porque si todos pueden crear un fichero también todos podrán eliminarlo.
 
 9-
-A Manolo solo lo pondremos poner en un grupo ya sea /home/interfaz o /home/bbdd ya que un usuario solo puede pertenecer a un grupo, o modificar los grupos para otros y así podría acceder, pero con el todos los otros usuarios también.
+-Deberiamos ponerlo en los grupos en los cuales esten los directorios.
+-Ponerlo como root
 
--Para acceder a los directorios personales tendría que tener permisos de adminstrador y aśi si que podría acceder a los directorios personales.
 
 10-
+1º Para cada directorio tendria como usuario administrado un jefe de de equipo, este tendria todos los permisos, y modificaria los permisos para grupo para los usuarios que tengan que trabajar con este directorio.
 
-060
+2º Los admistradores que tengans que ver otros directorios diferentes, a los suyos como propietarios, deberán compartir las contraseñas y nombre de usuario para así poder logearse y ver los contenidos, o pedir esta información al usuario administrador.
+
+3º Podemos permitir a los directorios que se precise, la condición de que otros puedan leer este, pero nada más, si tuviera que modificar algo un usuario de un directorio que no pertenece como grupo, debería hablar con su responsable y él que le diera acceso, o el propio usuario admistrador hablar con el otro departamaento para hacer el cambio.
 
