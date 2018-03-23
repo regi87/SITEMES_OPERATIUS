@@ -5,7 +5,8 @@ echo $directorio
 echo  $ruta
 
 if [ -d "$ruta" ];then
-     borrado=$(cd $ruta && rm *.txt )
+	echo "Borrado el fichero los txt del directorio: $directorio"
+    	borrado=$(cd $ruta && rm *.txt )
 else
     echo "El directorio no existe"
 fi
