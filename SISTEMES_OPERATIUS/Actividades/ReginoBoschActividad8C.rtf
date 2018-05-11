@@ -1,0 +1,95 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fnil\fcharset0 Monaco;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red242\green242\blue242;\red0\green0\blue0;
+\red0\green0\blue0;\red255\green255\blue255;\red25\green25\blue25;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c0;\csgray\c95825;\csgray\c0\c85000;
+\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c12941\c12941\c12941;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 Actividad 8c Regina Bosch Lozano\
+\
+-Punto 1:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \CocoaLigature0 ubuntu@ip-172-31-45-44:~$ httpd -v\
+Server version: Apache/2.4.25 (Unix)\
+Server built:   Apr  5 2017 15:02:49\
+\
+ sudo nmap -sT -O localhost\
+\
+Starting Nmap 7.01 ( https://nmap.org ) at 2018-05-04 09:38 UTC\
+Nmap scan report for localhost (127.0.0.1)\
+Host is up (0.000064s latency).\
+Not shown: 996 closed ports\
+PORT     STATE SERVICE\
+22/tcp   open  ssh\
+25/tcp   open  smtp\
+80/tcp   open  http\
+3306/tcp open  mysql\
+Device type: general purpose\
+Running: Linux 3.X\
+OS CPE: cpe:/o:linux:linux_kernel:3\
+OS details: Linux 3.12 - 3.19, Linux 3.8 - 3.19\
+Network Distance: 0 hops\cf3 \cb4 \
+\cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \CocoaLigature1 -Punto 2:\
+Nano httpd.conf\
+\
+ServerRoot:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \CocoaLigature0 ServerRoot "/opt/bitnami/apache2"\
+\
+User y Group:\
+Daemon\
+\
+Timeout:\
+300\
+\
+-Punto 3:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \CocoaLigature1 Nano httpd.conf\cf2 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 Listen 90\
+Restart:\
+sudo /opt/bitnami/ctlscript.sh restart apache\
+\
+sudo nano /opt/bitnami/apache2/conf/bitnami/bitnami.conf\
+\
+-Punto 4:\
+DocumentRoot:\
+DocumentRoot "/opt/bitnami/apache2/htdocs"\
+\
+..\cf5 \cb6 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec5 DocumentRoot indica el directorio donde se almacenan los documentos web.\cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 \
+ErrorLog:\
+ErrorLog "logs/error_log"\
+\
+..\cf7 \cb6 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec7 Es el archivo de registro m\'e1s importante, es el lugar donde Apache httpd enviar\'e1 informaci\'f3n de diagn\'f3stico y registrar\'e1 cualquier error que encuentre al procesar las solicitudes.\
+
+\f1\fs36 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 \
+-Punto 5:\
+\
+index.html\
+bitnami@ip-172-31-29-224:/opt/bitnami/apache2/conf/bitnami$ cat ../httpd.conf | grep DirectoryIndex \
+# DirectoryIndex: sets the file that Apache will serve if a directory\
+    DirectoryIndex index.html index.php\
+\
+Creamos prueba.html\
+Y le a\'f1adiremos delante en DirectoryIndex:\
+\cb1 bitnami@ip-172-31-29-224:/opt/bitnami/apache2/conf$ cat httpd.conf | grep DirectoryIndex \
+# DirectoryIndex: sets the file that Apache will serve if a directory\
+    DirectoryIndex prueba.html index.html index.php\
+\
+Punto 6:\
+\
+No mostrar\'e1 el contenido del primer archivo que se encontrar\'e1 en DirectoryIndex.\
+\cb1 \
+
+\f2\fs24 \cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+}
